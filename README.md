@@ -73,6 +73,33 @@ The repository will include:
 - Figures and statistical results.
 - Project documentation.
 
+## Installation
+
+The computational environment is managed using Conda.
+
+Create the environment using:
+
+```bash
+conda env create -f environment.yml
+```
+
+Activate the environment:
+
+```bash
+conda activate wrf-validation
+```
+
+Run the preprocessing scripts from the repository root:
+
+```bash
+python scripts/01_download_merge.py
+python scripts/02_grib_to_netcdf.py
+python scripts/03_regrid_merge.py
+```
+
+Additional input datasets must be placed in the
+corresponding directories described in `data/README.md`.
+
 ## Data availability
 
 Data sources and access instructions will be documented as the project progresses.

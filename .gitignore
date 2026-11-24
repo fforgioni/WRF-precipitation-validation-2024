@@ -221,3 +221,43 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# =====================================================
+# Scientific datasets
+# =====================================================
+
+*.nc
+*.nc4
+*.grib
+*.grib2
+*.grb
+*.grb2
+*.idx
+
+# WRF model files
+
+wrfout_*
+wrfinput_*
+wrfbdy_*
+wrfrst_*
+met_em.*
+
+# Local datasets
+
+data/raw/
+data/processed/
+
+# Temporary files
+
+*.part
+*.tmp
+
+# IDE settings
+
+.spyproject/
+.vscode/
+
+# Operating system files
+
+.DS_Store
+Thumbs.db

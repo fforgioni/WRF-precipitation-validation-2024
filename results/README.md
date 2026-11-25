@@ -1,4 +1,4 @@
-# Verification results
+# Verification
 
 This directory contains the statistical results
 obtained from the WRF precipitation validation

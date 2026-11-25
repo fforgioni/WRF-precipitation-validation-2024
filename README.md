@@ -1,6 +1,17 @@
 # WRF Precipitation Validation
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24540128.svg)](https://doi.org/10.5281/zenodo.24540128)
 
+## Citation
+
+If you use this repository in your research,
+please cite:
+
+Forgioni, F. P. (2026). WRF Precipitation
+Validation: The April–May 2024 Extreme Rainfall
+Event in Southern Brazil (Version v1.0.0)
+[Computer software]. Zenodo.
+https://doi.org/10.5281/zenodo.24540128
+
 ### The April–May 2024 Extreme Rainfall Event in Southern Brazil
 
 ![Model](https://img.shields.io/badge/Model-WRF-blue)

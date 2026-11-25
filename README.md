@@ -415,6 +415,13 @@ separately.
 Additional dataset information is available in
 [data/README.md](data/README.md).
 
+## Author
+
+**Fernando Primo Forgioni**
+
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--3233--8957-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0000-0003-3233-8957)
+[![GitHub](https://img.shields.io/badge/GitHub-fforgioni-181717?logo=github)](https://github.com/fforgioni)
+
 ## Academic context
 
 This project was developed within the framework of

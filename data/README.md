@@ -1,126 +1,118 @@
-# Data Description and Availability
+# Data availability and requirements
 
-This directory documents the datasets used to evaluate WRF
-precipitation simulations during the 28 April – 3 May 2024 event.
+This directory contains the input datasets required
+for the WRF precipitation validation study.
 
-## 1. WRF simulations
+Large NetCDF files are not distributed through this
+repository due to their size.
 
-Four numerical experiments were designed to evaluate the
-sensitivity of simulated precipitation to atmospheric forcing
-and cumulus parameterizations.
+## Required datasets
 
-| Experiment | Forcing | Cumulus scheme | File |
-|---|---|---|---|
-| GF-ERA5 | ERA5 | Grell-Freitas | Grell-Freitas-ERA5.nc |
-| GF-GFS | GFS | Grell-Freitas | Grell-Freitas-GFS.nc |
-| KF-ERA5 | ERA5 | Kain-Fritsch | Kain-Fritsch-ERA5.nc |
-| KF-GFS | GFS | Kain-Fritsch | Kain-Fritsch-GFS.nc |
+### WRF simulations
 
-### Atmospheric forcing datasets
+| Filename | Experiment |
+|---|---|
+| Grell-Freitas-ERA5.nc | GF-ERA5 |
+| Grell-Freitas-GFS.nc | GF-GFS |
+| Kain-Fritsch-ERA5.nc | KF-ERA5 |
+| Kain-Fritsch-GFS.nc | KF-GFS |
 
-- ERA5: ECMWF atmospheric reanalysis.
-- GFS: NOAA Global Forecast System.
+Required variables:
 
-Official resources:
+- RAINC: Accumulated convective precipitation.
+- RAINNC: Accumulated non-convective precipitation.
+- XLAT: Latitude.
+- XLONG: Longitude.
+- Time information.
 
-- [Copernicus Climate Data Store](https://cds.climate.copernicus.eu/)
-- [NOAA Global Forecast System](https://www.ncei.noaa.gov/products/weather-climate-models/global-forecast)
+Nominal horizontal resolution: 12 km.
 
-## 2. MERGE precipitation
+### Reference precipitation datasets
 
-MERGE precipitation estimates are provided by CPTEC/INPE,
-Brazil.
-
-Two products are used for model verification:
-
-| Product | Temporal resolution | Spatial resolution |
+| Filename | Temporal resolution | Source |
 |---|---|---|
-| MERGE Daily | 24 hours | 0.1° |
-| MERGE Hourly | 1 hour | 0.1° |
+| MERGE_HORARIO_WRF.nc | Hourly | CPTEC/INPE |
+| Merge-diario.nc | Daily | CPTEC/INPE |
+| PERSIANN_WRF.nc | Hourly | CHRS |
 
-### Hourly dataset
+The files used in the spatial verification must be
+interpolated onto the WRF computational grid.
 
-- Start date: 2024-04-28 00:00 UTC.
-- End date: 2024-05-03 23:00 UTC.
-- Number of hourly records: 144.
-- Original format: GRIB2.
-- Processed format: NetCDF.
+### Meteorological station observations
 
-### Data access
+Required file:
 
-Official CPTEC/INPE repository:
+`Estaciones.xlsx`
 
-https://ftp.cptec.inpe.br/modelos/tempo/MERGE/GPM/
+Required worksheet:
 
-Hourly data can be downloaded automatically using:
+`Sheet1`
 
-```bash
-python scripts/01_download_merge.py
-```
+Expected columns:
 
-GRIB2 files can be converted to NetCDF using:
+- nombre
+- institucion
+- latitud
+- longitud
+- Daily precipitation observations identified by date.
 
-```bash
-python scripts/02_grib_to_netcdf.py
-```
+Station precipitation must be expressed in millimetres.
 
-Daily and hourly precipitation can be interpolated onto
-the WRF grid using:
+## Temporal conventions
 
-```bash
-python scripts/03_regrid_merge.py
-```
+The main verification period extends from
+28 April 2024 at 12 UTC to 3 May 2024 at 12 UTC.
 
-## 3. Meteorological station observations
+Daily precipitation is evaluated using 24-hour
+accumulation windows from 12 UTC to 12 UTC.
 
-Precipitation observations from 60 meteorological stations
-are used for point-based verification.
+The processing scripts use the following
+timestamp conventions:
 
-These observations provide a complementary reference
-for evaluating both WRF simulations and MERGE estimates.
+- Hourly MERGE: end of the accumulation interval.
+- Daily MERGE: end of the accumulation interval.
+- Hourly PERSIANN: beginning of the accumulation interval.
+- Station observations: beginning date of the daily interval.
 
-Station locations, data providers, temporal resolution,
-quality-control procedures, and access conditions will
-be documented during the verification stage.
+These conventions must be verified against the
+original dataset metadata before running the scripts.
 
-## 4. Spatial harmonization
+## Topographic data
 
-All MERGE precipitation fields are interpolated onto the
-common WRF spatial grid using bilinear interpolation.
+Topographic information is obtained from the
+NOAA ETOPO 2022 global relief model.
 
-The original MERGE timestamps are preserved.
+Geographical boundaries are obtained from
+Natural Earth.
 
-Temporal accumulation intervals must be harmonized before
-performing precipitation verification.
+The study area script downloads the required
+topographic information automatically.
 
-## 5. Local data structure
+## Data directory structure
 
 ```text
 data/
 ├── README.md
-├── raw/
-│   ├── wrf/
-│   │   ├── Grell-Freitas-ERA5.nc
-│   │   ├── Grell-Freitas-GFS.nc
-│   │   ├── Kain-Fritsch-ERA5.nc
-│   │   └── Kain-Fritsch-GFS.nc
-│   ├── merge_hourly/
-│   ├── Merge-diario.nc
-│   └── stations/
-└── processed/
-    ├── MERGE_HORARIO_20240428_20240503.nc
-    └── regridded/
-        ├── MERGE_DIARIO_WRF.nc
-        └── MERGE_HORARIO_WRF.nc
+├── Estaciones.xlsx
+├── Grell-Freitas-ERA5.nc
+├── Grell-Freitas-GFS.nc
+├── Kain-Fritsch-ERA5.nc
+├── Kain-Fritsch-GFS.nc
+├── MERGE_HORARIO_WRF.nc
+├── Merge-diario.nc
+└── PERSIANN_WRF.nc
 ```
 
-## 6. Data availability
+## Data sources
 
-Large numerical model outputs and raw meteorological
-datasets are not directly included in this GitHub repository.
+- ERA5: https://cds.climate.copernicus.eu/
+- GFS: https://www.ncei.noaa.gov/
+- MERGE: https://www.cptec.inpe.br/
+- PERSIANN: https://chrsdata.eng.uci.edu/
+- NOAA ETOPO: https://www.ncei.noaa.gov/products/etopo-global-relief-model
+- Natural Earth: https://www.naturalearthdata.com/
 
-External storage and permanent access links will be
-documented upon project completion.
+## Data redistribution
 
-Redistribution of third-party datasets is subject to
-their respective licensing and access conditions.
+Input datasets remain subject to the terms and
+conditions established by their respective providers.

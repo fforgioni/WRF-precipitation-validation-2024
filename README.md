@@ -453,3 +453,14 @@ verification study have been completed.
   Facultad de Ciencias Astronómicas y Geofísicas<br>
   Universidad Nacional de La Plata · Argentina · 2026
 </p>
+
+## License
+
+The original source code developed for this project
+is distributed under the MIT License.
+
+See the [LICENSE](LICENSE) file for details.
+
+Third-party datasets remain subject to the terms
+and conditions established by their respective
+providers.

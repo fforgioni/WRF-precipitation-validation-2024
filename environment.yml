@@ -4,45 +4,20 @@ channels:
   - conda-forge
 
 dependencies:
-
-  # Python
   - python=3.11
-
-  # Numerical computing
   - numpy
-  - scipy
   - pandas
   - xarray
-  - dask
-
-  # Meteorological data formats
+  - scipy
+  - matplotlib
+  - seaborn>=0.13
+  - cartopy
+  - shapely>=2.0
   - netcdf4
   - h5netcdf
+  - openpyxl
+  - requests
+  - dask
   - cfgrib
   - eccodes
-  - cftime
-
-  # Geospatial analysis
-  - cartopy
-  - geopandas
-  - shapely
-  - pyproj
-
-  # Statistical analysis
-  - scikit-learn
-  - statsmodels
-
-  # Data visualization
-  - matplotlib
-  - seaborn
-
-  # Data acquisition
-  - requests
-  - urllib3
-
-  # Spreadsheet processing
-  - openpyxl
-
-  # Interactive analysis
-  - jupyterlab
-  - ipykernel
+  - pip

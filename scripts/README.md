@@ -142,12 +142,12 @@ where required.
 
 ## Reproducibility status
 
-The analysis scripts have been adapted to use
+All nine analysis scripts have been successfully
+executed using the original input datasets and
 repository-relative paths.
 
-End-to-end execution tests with the original
-input datasets are pending.
-
+The execution tests were completed on
+25 November 2026.
 ## Author
 
 Fernando Primo Forgioni

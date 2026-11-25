@@ -1,18 +1,23 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite it as below."
+message: "If you use this software, please cite it as below."
 title: "WRF Precipitation Validation: The April–May 2024 Extreme Rainfall Event in Southern Brazil"
-authors:
-  - family-names: "Forgioni"
-    given-names: "Fernando Primo"
-    orcid: "https://orcid.org/0000-0003-3233-8957"
 type: software
+authors:
+  - family-names: Forgioni
+    given-names: Fernando Primo
+    orcid: "https://orcid.org/0000-0003-3233-8957"
+version: "1.0.0"
+date-released: "2026-11-25"
+doi: "10.5281/zenodo.24540128"
 repository-code: "https://github.com/fforgioni/WRF-precipitation-validation-2024"
+license: MIT
 keywords:
   - WRF
-  - Precipitation
-  - Numerical atmospheric modelling
-  - Extreme rainfall
+  - Numerical Weather Prediction
+  - Atmospheric Modelling
+  - Precipitation Verification
+  - Extreme Rainfall
+  - Southern Brazil
+  - Fractions Skill Score
   - ERA5
   - GFS
-  - Model verification
-  - Rio Grande do Sul

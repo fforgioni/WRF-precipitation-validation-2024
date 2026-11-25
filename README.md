@@ -428,13 +428,14 @@ This project was developed within the framework of
 the Numerical Atmospheric Modelling course.
 
 **Course:** Numerical Atmospheric Modelling  
+**Professor** Dr. Guillermo Berri
 **Faculty:** Facultad de Ciencias Astronómicas y Geofísicas (FCAG)  
 **University:** Universidad Nacional de La Plata (UNLP)  
 **Country:** Argentina
 
 ## Acknowledgements
 
-The authors acknowledge the institutions and research
+The author acknowledge the institutions and research
 centres responsible for providing the atmospheric
 forcing datasets, precipitation products,
 meteorological station observations, and numerical
